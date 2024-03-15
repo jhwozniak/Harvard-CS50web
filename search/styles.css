@@ -1,0 +1,122 @@
+    a.link:link {
+        font-family: "Arial", sans-serif;
+        font-size: 14px;
+        color: black;
+        text-decoration: none;
+        float: right;
+        padding: 7px;
+    }
+
+    a.link:visited {
+        font-family: "Arial", sans-serif;
+        color: black;
+        text-decoration: none;
+        float: right;
+    }
+
+    a.link:hover {
+        font-family: "Arial", sans-serif;
+        color: black;
+        text-decoration: underline;
+        float: right;
+    }
+
+    #logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 18%;
+        padding: 15px;
+    }
+
+    #search_bar {
+        border-radius: 25px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        width: 550px;
+        height: 30px;
+    }
+
+    .button_gs {
+        border-radius: 5px;
+        width: 135px;
+        height: 40px;
+        border: 1px #d3d3d3;
+        font-size: 14px;
+        background-color: #fafafa;
+    }
+
+    .button_gs:hover {
+        border: 1px solid #d3d3d3;
+        cursor:pointer;
+    }
+
+    p.undertext {
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        color: blue;
+        text-decoration: none;
+        position: fixed;
+        left: 847px;
+        top: 150px;
+    }
+
+    .button_blue {
+        font: bold 10pt Arial, Helvetica, sans-serif;
+        width: 130px;
+        height: 25px;
+        border: 1px #d3d3d3;
+        font-size: solid 14px;
+        background-color: rgb(75 142 250);
+        color: white;
+        margin-left: 685px
+    }
+
+    .button_blue:hover {
+        border: 1px solid #d3d3d3;
+        cursor:pointer;
+    }
+
+    .bar {
+        width: 100%;
+        height: 1px;
+        background: #DDD;
+        margin-top: 0px;
+        padding: 0px;
+    }
+
+    .category {
+        font-family: "Arial", sans-serif;
+        font-size: 14px;
+        color: black;
+        margin-left: 16px
+    }
+
+    label {
+        font-family: "Arial", sans-serif;
+        font-size: 13px;
+        color: black;
+        margin-left: 44px
+    }
+
+    input {
+        width: 600px;
+        height: 25px;
+        border: 1px solid #d3d3d3;
+
+    }
+
+    .title {
+        font-family: "Arial", sans-serif;
+        font-size: 18px;
+        color: rgb(217 48 37);
+        position: fixed;
+        left: 50px;
+    }
+
+    .find {
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        color: black;
+        margin-left: 42px
+    }
