@@ -1,0 +1,10 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+<h1>Oops!</h1>
+    Sorry, we could not find <b>{{ page_title|safe }}</b> in our encyclopedia.
+{% endblock %}
