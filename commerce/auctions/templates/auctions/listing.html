@@ -1,0 +1,64 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}    
+    <h2>Listing Details</h2>
+    <ul class="list-group">        
+            <li class="list-group-item">  
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>#{{ listing.id }} {{ listing.title }}</h5> 
+                            <img src="{{ listing.image }}" width="830" height="1040">                                                                        
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-12">                       
+                            <h5>Description:</h5>
+                            <p>{{ listing.description }}</p>
+                            <h5>Current price:</h5>
+                            <p>${{ listing.current_price }}</p>
+                            <h5>Listed by:</h5>
+                            <p>{{ listing.user_id }}</p>  
+                            {% if user.is_authenticated %}
+                            <form action="{% url 'watch' listing.id %}" method="post">
+                                {% csrf_token %}                                       
+                                <button type="submit" class="btn btn-primary">Add to Watchlist</button>
+                            </form>
+                            <form action="{% url 'bid' listing.id %}" method="post">
+                                {% csrf_token %}
+                                <br>
+                                <input type="text" class="form-control"  name="bid" placeholder="$0,00">                                       
+                                <br>
+                                <button type="submit" class="btn btn-primary">Place bid</button>                            
+                            </form>
+                            <br>                            
+                                {% if user_is_owner %}
+                                <form action="{% url 'close' listing.id %}" method="post">
+                                    {% csrf_token %}                                       
+                                    <button type="submit" class="btn btn-primary" style="background-color: orange; border-color: orange;">Close Listing</button>
+                                </form>    
+                                {% endif%}
+                            <br>
+                            <form action="{% url 'comment' listing.id %}" method="post">
+                                {% csrf_token %}  
+                                <textarea class="form-control" name="comment" rows="2"></textarea>                                      
+                                <br>
+                                <button type="submit" class="btn btn-primary">Add comment</button>
+                            </form>
+                            {% endif %}                            
+                            {% if comments %}
+                                <br>
+                                <h5>Comments:</h5>                            
+                                <ul class="list-group list-group-flush">
+                                {% for comment in comments %}    
+                                    <li class="list-group-item" style="font-size:14px;"> <i>{{ comment.user_id }}:</i> {{ comment.text }}        
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>                           
+                    </div>                               
+            </li>        
+    </ul>  
+{% endblock %}

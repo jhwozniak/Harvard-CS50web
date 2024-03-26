@@ -1,0 +1,51 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if not filtered_listings %}
+    <h2>Active Listings</h2>
+    <ul class="list-group list-group-flush">
+        {% for listing in listings %}
+            <li class="list-group-item"> 
+                    <div class="row">
+                        <div class="col-2">                            
+                            <h5><a href="{% url 'listing' listing.id %}">#{{ listing.id }} {{ listing.title }}</a></h5> 
+                            <img src="{{ listing.image }}" width="160" height="200">
+                            <br>
+                        </div>
+                        <div class="col-10">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <p>{{ listing.description }}</p>                            
+                            <p><b>${{ listing.current_price }}</b></p>
+                        </div>                        
+                    </div>                               
+            </li>
+        {% endfor%}
+    </ul>
+    {% else %}
+    <h2>Active Listings</h2>
+    <h6>filtered by category: <b>{{ category }}</b></h6>
+    <ul class="list-group">
+        {% for listing in filtered_listings %}
+            <li class="list-group-item">   
+                    <div class="row">
+                        <div class="col-2">
+                            <h5><a href="{% url 'listing' listing.id %}">#{{ listing.id }} {{ listing.title }}</a></h5>  
+                            <img src="{{ listing.image }}" width="160" height="200">
+                        </div>
+                        <div class="col-10">
+                            <br>
+                            <br>
+                            <br>
+                            <p>{{ listing.description }}</p>
+                            <b> ${{ listing.current_price }}</b>
+                        </div>
+                    </div>                               
+            </li>
+        {% endfor%}
+    </ul> 
+
+    {% endif %}
+{% endblock %}

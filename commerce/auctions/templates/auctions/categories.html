@@ -1,0 +1,18 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Categories</h2>
+    <form action="{% url 'categories' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">            
+            <select class="form-control" name="category">
+                {% for category in categories %}
+                    <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+          </div>         
+        <button type="submit" class="btn btn-primary">Filter listings</button>
+      </form>
+    <hr>
+    <a class="nav-link" href="{% url 'index' %}">Back to Listings</a>    
+{% endblock %}
